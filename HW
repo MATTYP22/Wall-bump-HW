@@ -1,0 +1,40 @@
+// Created on Thu March 19 2020
+//DECLARING
+int l_motor= 0; //left motor
+int r_motor= 1; //right motor
+int r_bump= 5; //right bump
+int l_bump= 7; //left bump
+int pause= 500; //pause
+int speed= 50; //right speed
+
+//FUNCTION DEFINITIONS//
+void straight(){
+printf("moving straight\n");
+    motor(r_motor,speed);
+    motor(l_motor,speed);
+}
+
+void turn(){
+printf("turning\n");
+     motor(l_motor,speed);
+     ao();   //all off
+}
+
+
+int main(){
+while(digital(r_bump)==0){     //No wall in view, go straight
+       straight();
+}
+  ao();
+while(digital(l_bump)==0){   //No wall in view, turn
+turn();
+}
+ao();
+   
+printf("Hello, World!\n");
+return 0;
+
+}
+
+
+ 	
