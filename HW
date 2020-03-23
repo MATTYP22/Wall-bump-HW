@@ -1,40 +1,37 @@
-// Created on Thu March 19 2020
-//DECLARING
-int r_motor= 0; //right motor
-int l_motor= 2; //left motor
-int r_bump= 5; //right bump
-int l_bump= 7; //left bump
-int pause= 500; //pause
-int speed= 54; //right speed
+// Created on Sun March 22 2020
+int l_bump=8;
+int r_bump=9;
+int l_tophat=3;
+int speed=50;
+int slow=20;
+int l_motor=0;
+int r_motor=1;
 
-//FUNCTION DEFINITIONS//
-void straight(){
-printf("moving straight\n");
-    motor(r_motor,speed);
-    motor(l_motor,speed);
+
+//FUNCTIONS
+void forward(){
+motor(r_motor,speed);
+motor(l_motor,speed);
+}
+void veer_right(){
+motor(r_motor,slow);
+motor(l_motor,speed);
 }
 
-void turn(){
-printf("turning\n");
-     motor(l_motor,speed);
-     ao(); //all off
+void veer_left(){
+motor(r_motor,speed);
+motor(l_motor,slow);
 }
 
-
-int main(){
-while(digital(r_bump)==0){     //No wall in view, go straight
-       straight(); //going straight
+int main()
+{
+while(digital(l_bump)==0) //While the left bumper isn't pressed
+forward();
+if(digital(r_bump)==1 )//While the right bumper is being pressed...veer left
+veer_left();
 }
-  ao();
-while(digital(l_bump)==0){   //No wall in view, turn
-turn();
+if(analog(l_tophat)>200)  {// If it reaches the black line....veer right
+veer_right();
 }
-ao();
-   
-printf("Hello, World!\n");
-return 0;
-
-}
-
 
  	
