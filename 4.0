@@ -14,6 +14,7 @@ int fast = 60;
 int main()
 { //while the front range sensor is not seeing the front wall... 
  FollowWall();
+ veer_left();
 }
 
 //FUNCTIONS
