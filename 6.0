@@ -18,14 +18,15 @@ void backward();
     motor(r_motor,-speed);
 }
     
-int main()
+int main(){
     int fruitloops;
-    forward();
-    backward();
-
-for(fruitloops=1;<=12;+=2)
+   
+for(fruitloops=fruitloops1;fruitloops<=12;fruitloops+=2)
 
 {
-    printf("Loopy\n");
-    return 0;
+    printf(fruitloop = %d\n",fruitloop);"
+   forward();
+   backward();
+    
+}
 }
